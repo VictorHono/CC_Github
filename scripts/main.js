@@ -67,3 +67,26 @@
   tick();
   window.addEventListener('resize', ()=>{});
 })();
+
+// Simple UI interactions: project hover tilt + micro-animations via GSAP
+document.querySelectorAll('.project').forEach((card)=>{
+  card.addEventListener('mouseenter', ()=>{ gsap.to(card,{scale:1.03, duration:0.45, ease:'power2.out'}) });
+  card.addEventListener('mouseleave', ()=>{ gsap.to(card,{scale:1, duration:0.45, ease:'power2.out'}) });
+  card.addEventListener('click', ()=>{
+    const meta = card.querySelector('.meta').innerHTML;
+    const modal = document.createElement('div');
+    modal.className = 'projectModal';
+    modal.innerHTML = `<div class="modalContent"><button class="close">×</button>${meta}</div>`;
+    document.body.appendChild(modal);
+    gsap.from('.projectModal',{autoAlpha:0, y:40, duration:0.45});
+    modal.querySelector('.close').addEventListener('click', ()=>{ gsap.to('.projectModal',{autoAlpha:0,duration:0.35, onComplete:()=>modal.remove()}) });
+  });
+});
+
+// Contact form faux submit
+document.getElementById('contactForm').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const btn = e.target.querySelector('.submit');
+  btn.disabled = true; btn.innerText = 'Envoi…';
+  setTimeout(()=>{ btn.innerText='Envoyé ✓'; gsap.to(btn,{backgroundColor:'#00ffaa', duration:0.25}); }, 900);
+});
