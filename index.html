@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>UV Design Studio — Portfolio 2025</title>
+<link rel="icon" href="assets/favicon.svg" />
+<link href="styles.css" rel="stylesheet" />
+
+<script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+<script src="https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+</head>
+<body class="theme-dark">
+
+<div id="intro">
+  <div id="holoWrap">
+    <div id="logoSVG">
+      <img src="assets/logo.svg" alt="UV Design Studio logo" />
+    </div>
+    <h1 class="tagline">Nous créons l'avenir du web, aujourd'hui.</h1>
+    <div class="ctas">
+      <a class="btn" href="#about">Découvrir l'agence</a>
+      <a class="btn ghost" href="#portfolio">Nos créations</a>
+      <a class="btn outline" href="#contact">Nous contacter</a>
+    </div>
+  </div>
+  <canvas id="bgCanvas"></canvas>
+</div>
+
+<!-- Navigation -->
+<nav id="topNav">
+  <div class="brand">
+    <img src="assets/logo_small.svg" alt="UV" />
+  </div>
+  <ul class="menu">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Réalisations</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main id="content">
+  <!-- About -->
+  <section id="about" class="panel glass">
+    <div class="col left">
+      <h2>À propos</h2>
+      <p class="lead">UV Design Studio est une agence de création digitale née de la passion d’Urilrch Laurel et Honoré Victor. Nous concevons des expériences numériques uniques, alliant design, innovation et performance.</p>
+      <div class="founders">
+        <figure class="founder">
+          <img src="assets/founder_urilrch.svg" alt="Urilrch Laurel portrait" />
+          <figcaption>
+            <strong>Urilrch Laurel</strong><br/><span>Co-fondateur — Direction technique</span>
+          </figcaption>
+        </figure>
+        <figure class="founder">
+          <img src="assets/founder_honore.svg" alt="Honoré Victor portrait" />
+          <figcaption>
+            <strong>Honoré Victor</strong><br/><span>Co-fondateur — Direction créative</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="col right">
+      <div id="wireframe3d" class="panel-3d"></div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="panel">
+    <h2>Services</h2>
+    <div class="services-grid">
+      <article class="service card" data-service="web">
+        <div class="icon"><img src="assets/icon_web.svg" alt="web icon"/></div>
+        <h3>Conception de sites web</h3>
+        <p>Sites e-commerce, vitrines et plateformes sur-mesure, optimisés pour la conversion et la performance.</p>
+      </article>
+      <article class="service card" data-service="app">
+        <div class="icon"><img src="assets/icon_app.svg" alt="app icon"/></div>
+        <h3>Conception d'applications</h3>
+        <p>Interfaces performantes et expérience utilisateur mobile-first, prototypes interactifs et PWA.</p>
+      </article>
+      <article class="service card" data-service="flyer">
+        <div class="icon"><img src="assets/icon_print.svg" alt="print icon"/></div>
+        <h3>Flyers & visuels</h3>
+        <p>Identités visuelles, affiches événementielles et supports publicitaires créatifs et percutants.</p>
+      </article>
+      <article class="service card" data-service="editing">
+        <div class="icon"><img src="assets/icon_video.svg" alt="video icon"/></div>
+        <h3>Montage photo & vidéo</h3>
+        <p>Montage cinématique, motion design et retouches professionnelles pour communication multimédia.</p>
+      </article>
+      <article class="service card" data-service="social">
+        <div class="icon"><img src="assets/icon_dashboard.svg" alt="dashboard icon"/></div>
+        <h3>Gestion & réseaux</h3>
+        <p>Stratégie digitale, animation sociale, analytics et gestion de contenus pour marques ambitieuses.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="panel glass">
+    <h2>Réalisations</h2>
+    <div class="portfolio-3d" id="portfolioGrid">
+      <!-- project cards -->
+      <div class="project" tabindex="0" data-type="ecommerce">
+        <img src="assets/project_ecom.svg" alt="Projet e-commerce"/>
+        <div class="meta">
+          <h4>NeonMode — E‑commerce</h4>
+          <p>Site boutique pour une marque de mode futuriste. UI/UX, intégration paiement, performance.</p>
+          <span class="tag">E‑commerce</span>
+        </div>
+      </div>
+      <div class="project" tabindex="0" data-type="app">
+        <img src="assets/project_reserve.svg" alt="App réservation"/>
+        <div class="meta">
+          <h4>TableFlow — Application</h4>
+          <p>Application de réservation pour restaurants modernes, design UI et architecture front-end.</p>
+          <span class="tag">Application</span>
+        </div>
+      </div>
+      <div class="project" tabindex="0">
+        <img src="assets/project_festival.svg" alt="Festival"/>
+        <div class="meta">
+          <h4>TechFest — Campagne</h4>
+          <p>Identité visuelle et supports print & digit pour un festival technologique international.</p>
+          <span class="tag">Campagne</span>
+        </div>
+      </div>
+      <div class="project" tabindex="0">
+        <img src="assets/project_video.svg" alt="Promo vidéo"/>
+        <div class="meta">
+          <h4>PulsePromo — Vidéo</h4>
+          <p>Vidéo promotionnelle et motion design, storytelling visuel pour une startup scale‑up.</p>
+          <span class="tag">Vidéo</span>
+        </div>
+      </div>
+      <div class="project" tabindex="0">
+        <img src="assets/project_branding.svg" alt="Branding"/>
+        <div class="meta">
+          <h4>Astra — Branding</h4>
+          <p>Refonte d'identité, guidelines, logotype et pack assets pour start‑up en IA.</p>
+          <span class="tag">Branding</span>
+        </div>
+      </div>
+      <div class="project" tabindex="0">
+        <img src="assets/project_dashboard.svg" alt="Dashboard"/>
+        <div class="meta">
+          <h4>InsightFlow — Dashboard</h4>
+          <p>Dashboard 3D animés de gestion et visualisation, analytics et UX avancée.</p>
+          <span class="tag">Dashboard</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="panel contact">
+    <h2>Contact</h2>
+    <p>Envie de travailler avec nous ? Parlons‑en.</p>
+    <form id="contactForm" class="glass form">
+      <label>Nom<input type="text" name="name" required /></label>
+      <label>Email<input type="email" name="email" required /></label>
+      <label>Message<textarea name="message" rows="4" required></textarea></label>
+      <div class="row">
+        <button class="btn submit" type="submit">Envoyer</button>
+        <div class="socials">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Behance">Behance</a>
+          <a href="#" aria-label="X">X</a>
+        </div>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <small>© UV Design Studio — 2025 • Urilrch Laurel & Honoré Victor</small>
+</footer>
+
+<script src="scripts/main.js"></script>
+</body>
+</html>
